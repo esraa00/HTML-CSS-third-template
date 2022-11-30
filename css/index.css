@@ -60,6 +60,7 @@ header {
   box-shadow: 0px 0px 10px #ddd;
   -webkit-box-shadow: 0px 0px 10px #ddd;
   -moz-box-shadow: 0px 0px 10px #ddd;
+  z-index: 2;
 }
 
 header .container {
@@ -67,6 +68,7 @@ header .container {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  position: relative;
 }
 
 header .logo-name {
@@ -95,6 +97,12 @@ header .main-nav {
   header .main-nav {
     margin: 0 auto;
   }
+}
+
+header .main-nav > li:last-child:hover .mega-menu {
+  opacity: 1;
+  top: calc(100% + 1px);
+  z-index: 100;
 }
 
 header .main-nav > li > a {
@@ -139,6 +147,93 @@ header .main-nav > li > a:hover::before {
 header .main-nav > li > a:hover {
   color: var(--main-color);
   background-color: var(--main-text-color-alt);
+}
+
+header .mega-menu {
+  position: absolute;
+  width: 100%;
+  left: 50%;
+  padding: 30px;
+  background-color: white;
+  border-bottom: 3px var(--main-color) solid;
+  z-index: -1;
+  display: flex;
+  gap: 40px;
+  top: calc(100% + 40px);
+  transition: top var(--main-transition-duration),
+    opacity var(--main-transition-duration);
+  transform: translateX(-50%);
+  opacity: 0;
+}
+
+@media (max-width: 767px) {
+  header .mega-menu {
+    flex-direction: column;
+    gap: 0px;
+    padding: 5px;
+    top: 91px;
+  }
+}
+
+header .mega-menu img {
+  flex: 1;
+  max-width: 100%;
+}
+
+@media (max-width: 992px) {
+  header .mega-menu img {
+    display: none;
+  }
+}
+
+header .mega-menu ul {
+  flex: 1;
+  min-width: 250px;
+}
+
+header .mega-menu ul li {
+  color: var(--main-color);
+  position: relative;
+  overflow: hidden;
+}
+
+header .mega-menu ul li::before {
+  position: absolute;
+  content: '';
+  width: 0%;
+  z-index: -1;
+  height: 100%;
+  background-color: var(--main-text-color-alt);
+  left: 0px;
+  top: 0px;
+  transition: var(--main-transition-duration);
+}
+
+header .mega-menu ul li:not(:last-child) {
+  border-bottom: 1px solid #e9e6e6;
+}
+
+header .mega-menu ul li:hover::before {
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  header .mega-menu ul:first-of-type li:last-child {
+    border-bottom: 1px solid #e9e6e6;
+  }
+}
+
+header .mega-menu ul li a {
+  color: var(--main-color);
+  font-size: 18px;
+  padding: 15px;
+  display: block;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+header .mega-menu ul li a i {
+  margin-right: 10px;
 }
 
 /* end header */
@@ -233,6 +328,7 @@ header .main-nav > li > a:hover {
   color: var(--main-color-alt);
 }
 /* end landing */
+/* start animation */
 @keyframes up-and-down {
   0%,
   100% {
@@ -257,3 +353,4 @@ header .main-nav > li > a:hover {
     bottom: 45px;
   }
 }
+/* end animation */
