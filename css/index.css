@@ -1,4 +1,5 @@
 /* start global rules */
+
 :root {
   --main-color: #2196f3;
   --main-color-alt: #1787e0;
@@ -53,8 +54,57 @@ a {
     width: 1170px;
   }
 }
+
+.main-title {
+  text-transform: uppercase;
+  margin: 0px auto 80px;
+  border: 2px solid black;
+  padding: 10px 20px;
+  font-size: 30px;
+  width: fit-content;
+  position: relative;
+  z-index: 1;
+  transition: var(--main-transition-duration);
+}
+
+.main-title:hover {
+  color: white;
+  border: 2px white solid;
+  transition-delay: 0.5s;
+}
+
+.main-title::before,
+.main-title::after {
+  content: '';
+  position: absolute;
+  background-color: var(--main-color);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: -1;
+}
+
+.main-title::before {
+  left: -30px;
+}
+
+.main-title::after {
+  right: -30px;
+}
+
+.main-title:hover::before {
+  animation: left-move 0.5s linear forwards;
+}
+
+.main-title:hover::after {
+  animation: right-move 0.5s linear forwards;
+}
+
 /* end global reules */
 /* start header */
+
 header {
   background-color: white;
   box-shadow: 0px 0px 10px #ddd;
@@ -238,6 +288,7 @@ header .mega-menu ul li a i {
 
 /* end header */
 /* start landing */
+
 .landing {
   position: relative;
 }
@@ -327,8 +378,10 @@ header .mega-menu ul li a i {
 .landing .go-down:hover {
   color: var(--main-color-alt);
 }
+
 /* end landing */
 /* start animation */
+
 @keyframes up-and-down {
   0%,
   100% {
@@ -353,4 +406,33 @@ header .mega-menu ul li a i {
     bottom: 45px;
   }
 }
+
+@keyframes left-move {
+  50% {
+    left: 0;
+    width: 12px;
+    height: 12px;
+  }
+  100% {
+    left: 0;
+    border-radius: 0;
+    height: 100%;
+    width: 50%;
+  }
+}
+
+@keyframes right-move {
+  50% {
+    right: 0;
+    width: 12px;
+    height: 12px;
+  }
+  100% {
+    right: 0;
+    border-radius: 0;
+    height: 100%;
+    width: 50%;
+  }
+}
+
 /* end animation */
