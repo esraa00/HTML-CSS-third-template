@@ -980,6 +980,88 @@ header .mega-menu ul li a i {
   height: 100%;
 }
 /* end skills */
+/* start how it works */
+.how-it-works {
+  padding-top: var(--main-section-padding-top);
+  padding-bottom: var(--main-section-padding-bottom);
+  background-color: var(--secondary-section-background-color);
+}
+
+.how-it-works .container {
+  display: flex;
+  align-items: center;
+  gap: 100px;
+}
+
+@media (max-width: 992px) {
+  .how-it-works .container {
+    flex-direction: column;
+    gap: 50px;
+  }
+}
+
+.how-it-works .container > img {
+  max-width: 100%;
+}
+
+.how-it-works .container .steps {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.how-it-works .container .steps .step {
+  background-color: #f6f5f5;
+  padding: 30px;
+  gap: 30px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  border: 2px solid white;
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 992px) {
+  .how-it-works .container .steps .step {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.how-it-works .container .steps .step::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--secondary-section-background-color);
+  height: 0;
+  width: 0;
+  z-index: -1;
+  transition: var(--main-transition-duration);
+}
+
+.how-it-works .container .steps .step:hover::before {
+  height: 100%;
+  width: 100%;
+}
+
+.how-it-works .container .steps .step img {
+  height: 65px;
+}
+
+.how-it-works .container .steps .step .step-info h3 {
+  font-size: 22px;
+  margin: 0px;
+}
+
+.how-it-works .container .steps .step .step-info p {
+  line-height: 1.7;
+  font-size: 18px;
+  color: var(--main-text-color);
+  margin: 10px 0px 0px;
+}
+/* end how it works */
 
 /* start animation */
 @keyframes up-and-down {
