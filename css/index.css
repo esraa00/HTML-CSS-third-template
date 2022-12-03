@@ -1159,6 +1159,7 @@ header .mega-menu ul li a i {
 
 .latest-events .container .subscription form {
   width: 600px;
+  margin: 0 auto;
   padding: 30px 40px;
   background-color: #f6f5f5;
   border-radius: 50px;
