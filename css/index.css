@@ -1437,6 +1437,92 @@ header .mega-menu ul li a i {
 }
 /* end top videos */
 
+/* start statistics*/
+.statistics {
+  padding-top: var(--main-section-padding-top);
+  padding-bottom: var(--main-section-padding-bottom);
+  position: relative;
+  background-image: url('../images/stats.jpg');
+  background-size: cover;
+}
+
+.statistics::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(255 255 255 / 95%);
+}
+
+.statistics h2 {
+  text-align: center;
+  font-size: 40px;
+  width: fit-content;
+  margin: 0 auto 50px;
+  position: relative;
+}
+
+.statistics .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.statistics .container .card {
+  position: relative;
+  background-color: white;
+  padding: 30px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.statistics .container .card::before,
+.statistics .container .card::after {
+  position: absolute;
+  content: '';
+  width: 2px;
+  background-color: var(--main-color);
+  height: 0;
+  transition: 1s;
+}
+
+.statistics .container .card::before {
+  left: 0;
+  bottom: 0;
+}
+
+.statistics .container .card::after {
+  right: 0;
+  top: 0;
+}
+
+.statistics .container .card:hover::before,
+.statistics .container .card:hover::after {
+  height: 100%;
+}
+
+.statistics .container .card .number {
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.statistics .container .card .type {
+  color: var(--main-color);
+  font-weight: bold;
+  font-size: 20px;
+  font-style: italic;
+  transition: 1s;
+}
+
+.statistics .container .card:hover .type {
+  color: var(--main-color-alt);
+}
+/* end statistics*/
+
 /* start animation */
 @keyframes up-and-down {
   0%,
